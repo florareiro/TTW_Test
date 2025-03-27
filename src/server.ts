@@ -7,7 +7,7 @@ import errorHandler from "@/common/middleware/errorHandler";
 import rateLimiter from "@/common/middleware/rateLimiter";
 import requestLogger from "@/common/middleware/requestLogger";
 import { env } from "@/common/utils/envConfig";
-
+import squareRootRouter from "@/common/routes/SqrtRoute";
 const logger = pino({ name: "server start" });
 const app: Express = express();
 
@@ -26,7 +26,7 @@ app.use(requestLogger);
 
 // Routes
 // Add routes here...
-
+app.use("/square-root", squareRootRouter);
 
 // Error handlers
 app.use(errorHandler());
